@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BENEDY INFINIT LUXE</title>
+<meta name="description" content="BENEDY INFINIT LUXE — SKY'S THE LIMIT. Moda, calçado e acessórios.">
+<style>
+:root {
+  --gold: #d4af37;
+  --black: #080808;
+  --white: #f8f6f0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--white);
+  font-family: Arial, sans-serif;
+}
+header {
+  text-align: center;
+  padding: 25px 12px 20px;
+  border-bottom: 1px solid #9b7b29;
+}
+.logo {
+  font-family: Georgia, serif;
+  color: var(--gold);
+  font-size: 42px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.brand {
+  font-size: 17px;
+  letter-spacing: 3px;
+  margin-top: 7px;
+}
+.slogan {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  margin-top: 12px;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 17px 8px;
+  border-bottom: 1px solid #292929;
+}
+nav a {
+  color: white;
+  font-size: 12px;
+  text-decoration: none;
+}
+.hero {
+  padding: 65px 20px;
+  text-align: center;
+  background: radial-gradient(ellipse at center, #302719, #080808 72%);
+}
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 11px;
+}
+h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(32px, 8vw, 53px);
+  line-height: 1.12;
+  margin: 20px 0;
+}
+.hero p {
+  color: #ccc;
+  line-height: 1.7;
+  font-size: 14px;
+}
+.button {
+  display: inline-block;
+  background: var(--gold);
+  color: #080808;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 14px 22px;
+  margin-top: 18px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+}
+section { padding: 42px 16px; }
+.section-title {
+  font-family: Georgia, serif;
+  font-size: 29px;
+  text-align: center;
+  margin: 0 0 12px;
+}
+.section-subtitle {
+  text-align: center;
+  color: #aaa;
+  font-size: 13px;
+  margin-bottom: 28px;
+}
+.categories {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.category {
+  min-height: 110px;
+  padding: 22px 8px;
+  border: 1px solid #655020;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(145deg, #191612, #090909);
+}
+.category span:first-child {
+  color: var(--gold);
+  font-size: 25px;
+}
+.category span:last-child {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+.product {
+  border: 1px solid #292929;
+  padding-bottom: 15px;
+  background: #111;
+  overflow: hidden;
+}
+.product-art {
+  height: 130px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(140deg, #27231a, #0c0c0c);
+  color: var(--gold);
+  font-family: Georgia, serif;
+  font-size: 38px;
+}
+.product h3 {
+  font-size: 14px;
+  margin: 13px 10px 7px;
+}
+.product p {
+  font-size: 11px;
+  color: #aaa;
+  margin: 0 10px 10px;
+}
+.price {
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px;
+}
+.order {
+  display: block;
+  text-align: center;
+  margin: 10px;
+  padding: 11px 4px;
+  background: var(--gold);
+  color: #000;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: bold;
+}
+.notice {
+  color: #bdbdbd;
+  font-size: 12px;
+  line-height: 1.7;
+  text-align: center;
+  margin: 22px auto 0;
+  max-width: 500px;
+}
+.luxe {
+  text-align: center;
+  border-top: 1px solid #40351b;
+  border-bottom: 1px solid #40351b;
+  background: #100e09;
+}
+.luxe .symbol {
+  color: var(--gold);
+  font-size: 35px;
+  margin-bottom: 12px;
+}
+.contact { text-align: center; }
+footer {
+  text-align: center;
+  border-top: 1px solid #333;
+  padding: 25px 12px;
+  color: #aaa;
+  font-size: 11px;
+  line-height: 1.8;
+}
+footer strong { color: var(--gold); }
+@media (min-width: 650px) {
+  .categories { grid-template-columns: repeat(4, 1fr); }
+  .products { grid-template-columns: repeat(4, 1fr); }
+  .product-art { height: 190px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">B♾️</div>
+  <div class="brand">BENEDY INFINIT LUXE</div>
+  <div class="slogan">SKY'S THE LIMIT.</div>
+</header>
+
+<nav>
+  <a href="#inicio">INÍCIO</a>
+  <a href="#categorias">CATEGORIAS</a>
+  <a href="#produtos">PRODUTOS</a>
+  <a href="#luxe">COLEÇÃO LUXE</a>
+  <a href="#contacto">CONTACTO</a>
+</nav>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="eyebrow">ELEGÂNCIA • ESTILO • EXCLUSIVIDADE</div>
+  <h1>O teu estilo.<br>As tuas regras.</h1>
+  <p>Descobre a moda que representa a tua personalidade.<br>
+  Peças selecionadas para quem nasceu para se destacar.</p>
+  <a class="button" href="#produtos">DESCOBRIR COLEÇÃO</a>
+</section>
+
+<section id="categorias">
+  <h2 class="section-title">Explora o universo</h2>
+  <p class="section-subtitle">Encontra o teu próximo estilo.</p>
+  <div class="categories">
+    <div class="category"><span>♙</span><span>MODA MASCULINA</span></div>
+    <div class="category"><span>♧</span><span>MODA FEMININA</span></div>
+    <div class="category"><span>♢</span><span>CALÇADO</span></div>
+    <div class="category"><span>✧</span><span>ACESSÓRIOS</span></div>
+  </div>
+</section>
+
+<section id="produtos">
+  <h2 class="section-title">Seleção da boutique</h2>
+  <p class="section-subtitle">Exemplos de produtos — preços ilustrativos.</p>
+
+  <div class="products">
+    <article class="product">
+      <div class="product-art">B♾️</div>
+      <h3>Camisa Elegance</h3>
+      <p>Moda masculina</p>
+      <div class="price">12.000 Kz</div>
+      <a class="order" href="#contacto">ENCOMENDAR</a>
+    </article>
+
+    <article class="product">
+      <div class="product-art">✧</div>
+      <h3>Conjunto Chic</h3>
+      <p>Moda feminina</p>
+      <div class="price">18.000 Kz</div>
+      <a class="order" href="#contacto">ENCOMENDAR</a>
+    </article>
+
+    <article class="product">
+      <div class="product-art">♢</div>
+      <h3>Ténis Urban</h3>
+      <p>Calçado</p>
+      <div class="price">25.000 Kz</div>
+      <a class="order" href="#contacto">ENCOMENDAR</a>
+    </article>
+
+    <article class="product">
+      <div class="product-art">◇</div>
+      <h3>Relógio Classic</h3>
+      <p>Acessórios</p>
+      <div class="price">15.000 Kz</div>
+      <a class="order" href="#contacto">ENCOMENDAR</a>
+    </article>
+  </div>
+
+  <p class="notice">Os produtos e preços apresentados são exemplos para demonstração. Serão substituídos pelos teus artigos e preços reais antes da divulgação da loja.</p>
+</section>
+
+<section class="luxe" id="luxe">
+  <div class="symbol">♛</div>
+  <div class="eyebrow">UMA EXPERIÊNCIA SUPERIOR</div>
+  <h2 class="section-title">A Coleção LUXE</h2>
+  <p class="section-subtitle">Sofisticação em cada detalhe.<br>Para quem não aceita limites.</p>
+  <a class="button" href="#contacto">CONSULTAR DISPONIBILIDADE</a>
+</section>
+
+<section class="contact" id="contacto">
+  <h2 class="section-title">Fala connosco</h2>
+  <p class="section-subtitle">Queres comprar ou consultar um produto?<br>Entra em contacto com a boutique.</p>
+  <p class="notice">O contacto WhatsApp será ativado assim que adicionarmos o teu número comercial.</p>
+</section>
+</main>
+
+<footer>
+  <strong>BENEDY INFINIT LUXE</strong><br>
+  SKY'S THE LIMIT.<br>
+  Moda • Calçado • Acessórios<br>
+  © 2026 BENEDY INFINIT LUXE
+</footer>
+
+</body>
+</html>
