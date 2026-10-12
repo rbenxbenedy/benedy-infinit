@@ -282,3 +282,64 @@ nav a:hover {
   font-size: 11px;
   color: #999999;
   }
+/* SECÇÃO DE COLEÇÕES */
+.collections {
+  padding: 85px 0;
+  background: #050505;
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.collection-card {
+  min-height: 280px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #292929, #080808);
+  border: 1px solid #303030;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.collection-card:hover {
+  transform: translateY(-5px);
+  border-color: #ffffff;
+}
+
+.collection-number {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  font-size: 45px;
+  font-weight: bold;
+  color: #292929;
+}
+
+.collection-card h3 {
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.collection-card p {
+  color: #b8b8b8;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.collection-link {
+  display: inline-block;
+  width: fit-content;
+  font-size: 11px;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #ffffff;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+  }
