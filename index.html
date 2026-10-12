@@ -70,3 +70,70 @@ img {
   max-width: 650px;
   margin: 0 auto 40px;
 }
+/* CABEÇALHO */
+header {
+  width: 100%;
+  background: #050505;
+  border-bottom: 1px solid #303030;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  min-height: 85px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-symbol {
+  font-size: 38px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.logo-text {
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.logo-slogan {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #b8b8b8;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+nav a {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #aaaaaa;
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 8px 12px;
+  font-size: 20px;
+}
