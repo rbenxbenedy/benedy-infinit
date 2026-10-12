@@ -609,3 +609,144 @@ footer {
 .copyright strong {
   color: #ffffff;
 }
+/* ADAPTAÇÃO PARA TELEMÓVEIS */
+@media (max-width: 900px) {
+  .container {
+    width: 92%;
+  }
+
+  .collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .header-content {
+    min-height: 75px;
+  }
+
+  nav {
+    gap: 15px;
+  }
+
+  nav a {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-content {
+    flex-wrap: wrap;
+    padding: 15px 0;
+  }
+
+  .logo-symbol {
+    font-size: 30px;
+  }
+
+  .logo-text {
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  .logo-slogan {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  nav a {
+    font-size: 10px;
+  }
+
+  .hero {
+    min-height: 470px;
+    padding: 60px 15px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+    letter-spacing: 2px;
+  }
+
+  .hero p {
+    font-size: 13px;
+  }
+
+  .hero-slogan {
+    font-size: 11px;
+    letter-spacing: 4px;
+  }
+
+  .button,
+  .button-outline {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    margin: 10px auto;
+  }
+
+  .section-title {
+    font-size: 23px;
+    letter-spacing: 2px;
+  }
+
+  .brand-intro,
+  .collections,
+  .products,
+  .contact {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .collection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .collection-card {
+    min-height: 220px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .product-info {
+    padding: 12px;
+  }
+
+  .product-info h3 {
+    font-size: 13px;
+  }
+
+  .product-price {
+    font-size: 12px;
+  }
+
+  .product-sizes {
+    font-size: 11px;
+  }
+
+  .product-button {
+    font-size: 9px;
+    padding: 11px 5px;
+  }
+
+  .contact h2 {
+    font-size: 24px;
+  }
+
+  .footer-links {
+    gap: 15px;
+  }
+    }
