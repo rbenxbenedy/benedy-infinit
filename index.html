@@ -750,3 +750,63 @@ footer {
     gap: 15px;
   }
     }
+/* ACABAMENTO PREMIUM E LUXURY */
+
+::selection {
+  background: #ffffff;
+  color: #050505;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+section {
+  scroll-margin-top: 100px;
+}
+
+.collection-card,
+.product-card,
+.button,
+.button-outline,
+.whatsapp-button,
+.product-button {
+  transition: all 0.3s ease;
+}
+
+.collection-card:hover,
+.product-card:hover {
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.04);
+}
+
+.brand-intro,
+.collections,
+.products,
+.contact {
+  position: relative;
+}
+
+.brand-intro::before,
+.collections::before,
+.products::before {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 1px;
+  background: #ffffff;
+  margin: 0 auto 30px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  }
