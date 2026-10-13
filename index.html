@@ -94,4 +94,94 @@ footer{text-align:center;padding:38px 15px 22px;background:#080808}.footname{fon
     padding: 9px 13px;
   }
 }
-</style></body></html>
+</style>
+
+<!-- CARRINHO DE COMPRAS BENEDY INFINIT LUXE -->
+<style>
+.cart-open{position:fixed;left:18px;bottom:20px;z-index:9998;background:#050505;color:#fff;border:1px solid #fff;border-radius:50px;padding:12px 17px;font-weight:bold;font-size:13px;box-shadow:0 4px 15px #0008;cursor:pointer}
+.cart-count{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;margin-left:7px;border-radius:50%;background:#fff;color:#050505}
+.cart-add{display:block;width:100%;margin-top:9px;padding:12px 8px;background:#050505;color:#fff;border:1px solid #fff;font-size:10px;font-weight:bold;letter-spacing:1px;cursor:pointer}
+.cart-add:hover{background:#fff;color:#050505}
+.cart-overlay{display:none;position:fixed;inset:0;background:#000b;z-index:10000;align-items:flex-end;justify-content:center}
+.cart-overlay.open{display:flex}
+.cart-panel{width:100%;max-width:560px;max-height:88vh;overflow:auto;background:#0b0b0b;color:#fff;border:1px solid #555;padding:22px;box-shadow:0 0 30px #000}
+.cart-head{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #444;padding-bottom:14px;margin-bottom:12px}
+.cart-head h2{font-size:19px;letter-spacing:2px}
+.cart-close{background:transparent;color:#fff;border:1px solid #777;padding:7px 12px;cursor:pointer}
+.cart-empty{color:#aaa;padding:20px 0;text-align:center}
+.cart-item{display:grid;grid-template-columns:1fr auto;gap:10px;border-bottom:1px solid #333;padding:13px 0}
+.cart-item h3{font-size:14px;margin-bottom:4px}.cart-item small{color:#aaa}
+.cart-controls{display:flex;align-items:center;gap:8px;margin-top:8px}
+.cart-controls button{background:#fff;color:#050505;border:0;width:30px;height:30px;font-weight:bold;font-size:17px;cursor:pointer}
+.cart-remove{background:transparent!important;color:#fff!important;border:1px solid #777!important;font-size:11px!important;width:auto!important;padding:0 8px}
+.cart-checkout{display:block;width:100%;margin-top:18px;padding:14px;background:#fff;color:#050505;border:1px solid #fff;font-weight:bold;letter-spacing:1px;cursor:pointer}
+.cart-help{font-size:11px;color:#aaa;margin-top:10px;text-align:center}
+@media(min-width:600px){.cart-overlay{align-items:center;padding:20px}.cart-panel{border-radius:3px}}
+@media(max-width:480px){.cart-open{left:12px;bottom:14px;padding:10px 13px}.cart-panel{padding:17px}}
+</style>
+<button class="cart-open" id="cartOpen" type="button" aria-label="Abrir carrinho">🛒 Carrinho <span class="cart-count" id="cartCount">0</span></button>
+<div class="cart-overlay" id="cartOverlay" role="dialog" aria-modal="true" aria-label="Carrinho de compras">
+  <div class="cart-panel">
+    <div class="cart-head"><h2>O TEU CARRINHO</h2><button class="cart-close" id="cartClose" type="button">Fechar ✕</button></div>
+    <div id="cartItems"><p class="cart-empty">Ainda não adicionaste produtos.</p></div>
+    <button class="cart-checkout" id="cartCheckout" type="button">FINALIZAR PEDIDO PELO WHATSAPP</button>
+    <p class="cart-help">Preços sob consulta. A disponibilidade será confirmada pelo WhatsApp.</p>
+  </div>
+</div>
+<script>
+(function(){
+  const phone='244938018187';
+  const cards=Array.from(document.querySelectorAll('.products .card'));
+  let cart={};
+  try{cart=JSON.parse(localStorage.getItem('bil_cart')||'{}')||{};}catch(e){cart={};}
+  const overlay=document.getElementById('cartOverlay');
+  const itemsEl=document.getElementById('cartItems');
+  const countEl=document.getElementById('cartCount');
+  function save(){try{localStorage.setItem('bil_cart',JSON.stringify(cart));}catch(e){}}
+  function total(){return Object.values(cart).reduce((sum,item)=>sum+item.qty,0);}
+  function render(){
+    countEl.textContent=total();
+    const entries=Object.entries(cart).filter(([,item])=>item.qty>0);
+    if(!entries.length){itemsEl.innerHTML='<p class="cart-empty">Ainda não adicionaste produtos.</p>';return;}
+    itemsEl.innerHTML=entries.map(([id,item])=>'<div class="cart-item"><div><h3>'+escapeHtml(item.name)+'</h3><small>Preço sob consulta</small><div class="cart-controls"><button type="button" data-action="minus" data-id="'+id+'" aria-label="Diminuir quantidade">−</button><strong>'+item.qty+'</strong><button type="button" data-action="plus" data-id="'+id+'" aria-label="Aumentar quantidade">+</button><button class="cart-remove" type="button" data-action="remove" data-id="'+id+'">Remover</button></div></div></div>').join('');
+  }
+  function escapeHtml(text){return String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+  cards.forEach((card,index)=>{
+    const title=card.querySelector('.info h3');
+    const order=card.querySelector('.info .order');
+    if(!title)return;
+    const id=String(index+1);
+    const button=document.createElement('button');
+    button.type='button';button.className='cart-add';button.textContent='ADICIONAR AO CARRINHO';
+    button.addEventListener('click',()=>{
+      if(!cart[id])cart[id]={name:title.textContent.trim(),qty:0};
+      cart[id].qty++;save();render();
+      button.textContent='ADICIONADO ✓';setTimeout(()=>button.textContent='ADICIONAR AO CARRINHO',1200);
+    });
+    if(order)order.insertAdjacentElement('afterend',button);else card.querySelector('.info').appendChild(button);
+  });
+  document.getElementById('cartOpen').addEventListener('click',()=>{overlay.classList.add('open');render();});
+  document.getElementById('cartClose').addEventListener('click',()=>overlay.classList.remove('open'));
+  overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.classList.remove('open');});
+  itemsEl.addEventListener('click',e=>{
+    const button=e.target.closest('button[data-action]');if(!button)return;
+    const id=button.dataset.id;const action=button.dataset.action;
+    if(!cart[id])return;
+    if(action==='plus')cart[id].qty++;
+    if(action==='minus')cart[id].qty--;
+    if(action==='remove'||cart[id].qty<=0)delete cart[id];
+    save();render();
+  });
+  document.getElementById('cartCheckout').addEventListener('click',()=>{
+    const entries=Object.values(cart).filter(item=>item.qty>0);
+    if(!entries.length){alert('O teu carrinho está vazio. Adiciona primeiro os produtos desejados.');return;}
+    let message='Olá, BENEDY INFINIT LUXE! Gostaria de fazer uma encomenda:%0A';
+    entries.forEach(item=>{message+='%0A- '+encodeURIComponent(item.name)+' — Quantidade: '+item.qty;});
+    message+='%0A%0APeço confirmação dos preços, tamanhos disponíveis e entrega.';
+    window.open('https://wa.me/'+phone+'?text='+message,'_blank','noopener');
+  });
+  render();
+})();
+</script>
+
+</body></html>
